@@ -36,3 +36,6 @@ jobs:
 
       - name: Push to artifact registry
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/securitypal-playground/notely-ar-repo/saugat2054/notely .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/securitypal-playground/notely-ar-repo/saugat2054/notely --region us-central1 --allow-unauthenticated --project securitypal-playground --max-instances=4
